@@ -2,55 +2,33 @@ require 'spec_helper'
 
 describe "Static pages" do
 
+  subject { page }
+
   describe "Home page" do
+    before { visit root_path }
 
-    it "should have the content 'Appp2'" do
-      visit root_path
-      expect(page).to have_content('Appp2')
-    end
-
-    it "should have the title 'Home'" do
-      visit root_path
-      expect(page).to have_title("Ruby on Rails Tutorial Appp2 | Home")
-    end
+    it { should have_content('Appp2') }
+    it { should have_title(full_title('Home')) }
   end
 
   describe "Help page" do
+    before { visit help_path }
 
-    it "should have the content 'Help'" do
-      visit help_path
-      expect(page).to have_content('Help')
-    end
-
-    it "should have the title 'Help'" do
-      visit help_path
-      expect(page).to have_title("Ruby on Rails Tutorial Appp2 | Help")
-    end
+    it { should have_content('Help') }
+    it { should have_title(full_title('Help')) }
   end
 
   describe "About page" do
+    before { visit about_path }
 
-    it "should have the content 'About Us'" do
-      visit about_path
-      expect(page).to have_content('About Us')
-    end
-
-    it "should have the title 'About Us'" do
-      visit about_path
-      expect(page).to have_title("Ruby on Rails Tutorial Appp2 | About Us")
-    end
+    it { should have_content('About Us') }
+    it { should have_title(full_title('About Us')) }
   end
 
   describe "Contact page" do
+    before { visit contact_path }
 
-  	it "should have the content 'Contact Me'" do
-  		visit contact_path
-  		expect(page).to have_title('Contact Me')
-  	end
-
-  	it "should have the title 'Contact Me'" do
-  		visit contact_path
-  		expect(page).to have_title("Ruby on Rails Tutorial Appp2 | Contact Me")
-  	end
+    it { should have_content('Contact Me') }
+    it { should have_title(full_title('Contact Me')) }
   end
 end
